@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "f7627371-e08e-4b5a-aae0-d82cecb11aaf",
+		"name": "pucrs-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37742971"
+	},
+	"item": [
+		{
+			"name": "GET /servcad/clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/servcad/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"servcad",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /servcad/aplicativos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/servcad/aplicativos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"servcad",
+						"aplicativos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /servcad/assinaturas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"clienteId\": 1, \"aplicativoId\": 2 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/servcad/assinaturas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"servcad",
+						"assinaturas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /servcad/aplicativos/:idAplicativo",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"custo\": 14.9 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/servcad/aplicativos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"servcad",
+						"aplicativos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /servcad/assinaturas/{tipo}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/servcad/assinaturas/ATIVAS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"servcad",
+						"assinaturas",
+						"ATIVAS"
+					]
+				},
+				"description": "Tipo = \\[TODAS|ATIVAS|CANCELADAS\\]"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /servcad/asscli/:codcli",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/servcad/asscli/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"servcad",
+						"asscli",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /servcad/assapp/:codapp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/servcad/assapp/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"servcad",
+						"assapp",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

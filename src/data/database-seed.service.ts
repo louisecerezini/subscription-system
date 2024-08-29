@@ -16,10 +16,7 @@ export class DatabaseSeedService implements OnModuleInit {
   async onModuleInit() {
     // Populando clientes
     const clientes = [
-      { nome: 'Cliente 1', email: 'cliente1@example.com' },
-      { nome: 'Cliente 2', email: 'cliente2@example.com' },
-      { nome: 'Cliente 3', email: 'cliente3@example.com' },
-      // Adicione mais clientes conforme necessário
+      { nome: 'Cliente 1', email: 'cliente1@example.com' }
     ];
     await this.clienteRepo.save(clientes);
 
@@ -28,7 +25,6 @@ export class DatabaseSeedService implements OnModuleInit {
       { nome: 'App 1', custoMensal: 9.99 },
       { nome: 'App 2', custoMensal: 19.99 },
       { nome: 'App 3', custoMensal: 29.99 },
-      // Adicione mais aplicativos conforme necessário
     ];
     await this.aplicativoRepo.save(aplicativos);
 
@@ -36,13 +32,28 @@ export class DatabaseSeedService implements OnModuleInit {
     const cliente1 = await this.clienteRepo.findOneBy({ nome: 'Cliente 1' });
     const aplicativo1 = await this.aplicativoRepo.findOneBy({ nome: 'App 1' });
 
-    const assinatura = this.assinaturaRepo.create({
+    const dataAtual = new Date();
+    const dataFim = new Date();
+    dataFim.setDate(dataFim.getDate() + 7);
+
+    const assinaturaAtiva = this.assinaturaRepo.create({
       cliente: cliente1,
       aplicativo: aplicativo1,
-      inicioVigencia: new Date(),
-      fimVigencia: null,
+      inicioVigencia: dataAtual,
+      fimVigencia: dataFim,
     });
 
-    await this.assinaturaRepo.save(assinatura);
+    await this.assinaturaRepo.save(assinaturaAtiva);
+
+    const aplicativo2 = await this.aplicativoRepo.findOneBy({ nome: 'App 2' });
+
+    const assinaturaCancelada = this.assinaturaRepo.create({
+      cliente: cliente1,
+      aplicativo: aplicativo2,
+      inicioVigencia: dataAtual,
+      fimVigencia: dataAtual,
+    });
+
+    await this.assinaturaRepo.save(assinaturaCancelada);
   }
 }
